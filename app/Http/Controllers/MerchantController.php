@@ -22,11 +22,6 @@ class MerchantController extends Controller
     public function menu()
     {
 
-        // foreach (MenuModel::all() as $menu) {
-        //     echo $menu->nama;
-        // }
-
-        // dd($data);
         return view('merchnat.menu', [
             'menus' => MenuModel::all()
         ]);
@@ -34,11 +29,7 @@ class MerchantController extends Controller
     public function profile()
     {
 
-        // foreach (MenuModel::all() as $menu) {
-        //     echo $menu->nama;
-        // }
 
-        // dd($data);
         return view('merchnat.profile', [
             'user' => User::where('id', Session::get('user_id'))->first()
         ]);
@@ -46,17 +37,23 @@ class MerchantController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create_menu()
     {
-        //
+        return view('merchnat.create_menu');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store_menu(Request $request)
     {
-        //
+        MenuModel::create([
+            'merchant_id' => session('user_id'),
+            'nama' => $request->nama,
+            'deskripsi' => $request->deskripsi,
+            'harga' => $request->harga,
+        ]);
+        return back()->with('success', 'data berhasil disimpan!');
     }
 
     /**
@@ -86,8 +83,11 @@ class MerchantController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(MerchantModel $merchantModel)
+    public function destroy_menu($id)
     {
-        //
+        $data = MenuModel::findOrFail($id);
+        $data->delete();
+
+        return redirect()->route('merchant.menu');
     }
 }

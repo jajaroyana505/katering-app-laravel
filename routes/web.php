@@ -33,6 +33,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'role:merchant'], function () {
         Route::get('/merchant/dashboard', [MerchantController::class, 'index'])->name('merchant.dashboard');
         Route::get('/merchant/menu', [MerchantController::class, 'menu'])->name('merchant.menu');
+        Route::get('/merchant/menu/create', [MerchantController::class, 'create_menu'])->name('merchant.create_menu');
+        Route::post('/merchant/menu/create', [MerchantController::class, 'store_menu'])->name('merchant.store_menu');
+        Route::delete('/merchant/menu/{id}', [MerchantController::class, 'destroy_menu'])->name('merchant.destroy_menu');
         Route::get('/merchant/prderan', [MerchantController::class, 'menu'])->name('merchant.orderan');
         Route::get('/merchant/profile', [MerchantController::class, 'profile'])->name('merchant.profile');
     });

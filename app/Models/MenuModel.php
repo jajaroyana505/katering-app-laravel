@@ -10,7 +10,7 @@ class MenuModel extends Model
     use HasFactory;
     protected $table = 'menus';
     protected $fillable = [
-        'nama', 'deskripsi', 'harga', 'merchant_id',
+        'nama', 'deskripsi', 'harga', 'merchant_id', 'gambar'
     ];
 
     // Relasi ke Merchant

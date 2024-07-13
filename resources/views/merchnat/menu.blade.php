@@ -2,10 +2,16 @@
 
 @section('content')
 <div class="container">
+    <div class="row mb-3">
+        <div class="col-auto">
+            <a href="{{ route('merchant.create_menu')}}" class="btn btn-primary">Tambah menu</a>
+
+        </div>
+    </div>
     <div class="row">
         @foreach ($menus as $menu)
 
-        <div class="col-4">
+        <div class="col-md-4 mb-4">
             <div class="card">
                 <div class="card-header">
                     {{ $menu['nama']}}
@@ -15,8 +21,16 @@
                     <h1 class="mt-2">{{ $menu['nama']}}</h1>
                     <h3>Rp. {{ $menu['harga']}}</h3>
                     <p>{{ $menu['deskripsi']}}</p>
-                    <button class="btn btn-primary">Ubah</button>
-                    <button class="btn btn-danger">Hapus</button>
+                    <div class="d-flex">
+                        <button class="btn btn-primary">Ubah</button>
+                        <form class="ms-2" action="{{ route('merchant.destroy_menu', ['id' => $menu->id]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
+
+                    </div>
+
                 </div>
             </div>
         </div>

@@ -27,6 +27,7 @@ return new class extends Migration
             $table->foreignId('merchant_id')->constrained()->onDelete('cascade');
             $table->string('nama');
             $table->text('deskripsi')->nullable();
+            $table->text('gambar')->nullable();
             $table->decimal('harga');
             $table->timestamps();
         });
