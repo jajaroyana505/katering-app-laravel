@@ -19,9 +19,7 @@
                     <li class="list-group-item">
                         <strong>Nama Toko : </strong> {{ $user->merchants->nama_merchant }}
                     </li>
-                    <li class="list-group-item">
-                        <strong>Twitter:</strong> <a href="https://twitter.com/" target="_blank"></a>
-                    </li>
+
                 </ul>
             </div>
         </div>
