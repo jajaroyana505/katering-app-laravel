@@ -9,7 +9,7 @@
 
 
 ## Login Aplikasi
-- email : merchaint@gmail.com
+- email : merchaint@example.com
 - Password : 123456789
 
 
