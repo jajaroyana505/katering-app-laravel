@@ -5,7 +5,6 @@
     <div class="row mb-3">
         <div class="col-auto">
             <a href="{{ route('merchant.create_menu')}}" class="btn btn-primary">Tambah menu</a>
-
         </div>
     </div>
     <div class="row">
@@ -22,7 +21,7 @@
                     <h3>Rp. {{ $menu['harga']}}</h3>
                     <p>{{ $menu['deskripsi']}}</p>
                     <div class="d-flex">
-                        <button class="btn btn-primary">Ubah</button>
+                        <a href="{{ route('merchant.edit_menu', ['id' => $menu->id]) }}" class="btn btn-primary">Ubah</a>
                         <form class="ms-2" action="{{ route('merchant.destroy_menu', ['id' => $menu->id]) }}" method="POST">
                             @csrf
                             @method('DELETE')

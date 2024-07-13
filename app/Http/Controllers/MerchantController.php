@@ -67,17 +67,25 @@ class MerchantController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(MerchantModel $merchantModel)
+    public function edit_menu($id)
     {
-        //
+
+        // dd($data);
+        return view('merchnat.edit_menu', [
+            'menu' => MenuModel::findOrFail($id)
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, MerchantModel $merchantModel)
+    public function update_menu(Request $request, $id)
     {
-        //
+
+        $data = MenuModel::findOrFail($id);
+        $data->fill($request->all());
+        $data->save();
+        return redirect()->route('merchant.menu');
     }
 
     /**
