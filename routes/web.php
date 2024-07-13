@@ -31,7 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/merchant/dashboard', [MerchantController::class, 'index'])->name('merchant.dashboard');
         Route::get('/merchant/menu', [MerchantController::class, 'menu'])->name('merchant.menu');
         Route::get('/merchant/prderan', [MerchantController::class, 'menu'])->name('merchant.orderan');
-        Route::get('/merchant/profile', [MerchantController::class, 'menu'])->name('merchant.profile');
+        Route::get('/merchant/profile', [MerchantController::class, 'profile'])->name('merchant.profile');
     });
 
     // Route untuk Customer

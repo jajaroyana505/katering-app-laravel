@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -75,6 +76,8 @@ class RegisterController extends Controller
 
     protected function registered(Request $request, $user)
     {
+        Session::put('role', $user->role);
+        Session::put('user_id', $user->id);
         if ($user->role == 'customer') {
             return redirect()->route('customer.dashboard');
         } elseif ($user->role == 'merchant') {

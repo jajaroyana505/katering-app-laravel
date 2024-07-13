@@ -18,4 +18,9 @@ class MerchantModel extends Model
     {
         return $this->hasMany(MenuModel::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

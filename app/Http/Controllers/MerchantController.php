@@ -6,6 +6,7 @@ use App\Models\MenuModel;
 use App\Models\MerchantModel;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class MerchantController extends Controller
 {
@@ -38,8 +39,8 @@ class MerchantController extends Controller
         // }
 
         // dd($data);
-        return view('merchnat.menu', [
-            'menus' => User::all()
+        return view('merchnat.profile', [
+            'user' => User::where('id', Session::get('user_id'))->first()
         ]);
     }
     /**
