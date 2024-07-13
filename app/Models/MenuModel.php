@@ -16,6 +16,7 @@ class MenuModel extends Model
     // Relasi ke Merchant
     public function merchants()
     {
-        return $this->belongsTo(MerchantModel::class);
+        // return $this->belongsTo(MerchantModel::class);
+        return $this->belongsTo(MerchantModel::class, 'merchant_id', 'id');
     }
 }

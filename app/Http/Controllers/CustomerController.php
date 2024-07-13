@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\CustomerModel;
+use App\Models\MenuModel;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CustomerController extends Controller
 {
@@ -15,6 +18,23 @@ class CustomerController extends Controller
         return view('customer.home');
     }
 
+    public function menu()
+    {
+
+
+        return view('customer.menu', [
+            'menus' => MenuModel::all()
+        ]);
+    }
+    public function profile()
+    {
+
+
+        return view('customer.profile', [
+            'user' => User::where('id', Session::get('user_id'))->first()
+
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      */

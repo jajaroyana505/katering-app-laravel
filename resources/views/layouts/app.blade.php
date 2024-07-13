@@ -45,7 +45,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('merchant.profile') }}">Profile</a>
                         </li>
-
+                        @else
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ route('customer.dashboard') }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('customer.menu') }}">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('customer.orderan') }}">Orderan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('customer.profile') }}">Profile</a>
+                        </li>
 
                         @endif
                     </ul>
@@ -75,7 +87,11 @@
                         @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                @if (Session::get('role') == 'merchant')
                                 {{ Auth::user()->name }}
+                                @else
+                                {{ Auth::user()->email }}
+                                @endif
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

@@ -45,6 +45,9 @@ Route::group(['middleware' => 'auth'], function () {
     // Route untuk Customer
     Route::group(['middleware' => 'role:customer'], function () {
         Route::get('/customer/dashboard', [CustomerController::class, 'index'])->name('customer.dashboard');
+        Route::get('/customer/menu', [CustomerController::class, 'menu'])->name('customer.menu');
+        Route::get('/customer/prderan', [CustomerController::class, 'menu'])->name('customer.orderan');
+        Route::get('/customer/profile', [CustomerController::class, 'profile'])->name('customer.profile');
     });
 });
 
