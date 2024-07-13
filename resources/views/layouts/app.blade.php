@@ -45,7 +45,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('merchant.profile') }}">Profile</a>
                         </li>
-                        @else
+                        @elseif (Session::get('role') == 'customer')
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{{ route('customer.dashboard') }}">Home</a>
                         </li>
@@ -58,7 +58,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('customer.profile') }}">Profile</a>
                         </li>
-
+                        @else
                         @endif
                     </ul>
                 </div>

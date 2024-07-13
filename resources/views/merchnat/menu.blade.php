@@ -8,6 +8,7 @@
         </div>
     </div>
     <div class="row">
+
         @foreach ($menus as $menu)
 
         <div class="col-md-4 mb-4">

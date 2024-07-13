@@ -10,7 +10,7 @@ class MerchantModel extends Model
     use HasFactory;
     protected $table = 'merchants';
     protected $fillable = [
-        'nama_merchant', 'alamat', 'kontak', 'deskripsi',
+        'user_id', 'nama_merchant', 'alamat', 'kontak', 'deskripsi',
     ];
 
     // Relasi ke Menu
